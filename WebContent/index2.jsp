@@ -27,24 +27,29 @@
 		
 		$(function(){
 			var treeData = [{
-				text:"饲料管理",
+				text:"繁育管理",
 				children:[{
-					text:"饲料库存查询",
+					text:"繁殖资料管理",
 					attributes:{
 						url:"${basePath}/inventory/list"
 					}
 				},{
-					text:"饲料入库管理",
+					text:"报孕管理",
 					attributes:{
 						url:"${basePath}/instock/list"
 					}
 				},{
-					text:"饲料出库管理",
+					text:"流产管理",
 					attributes:{
 						url:"${basePath}/outstock/list"
 					}
 				},{
-					text:"饲料名称设置",
+					text:"预产期管理",
+					attributes:{
+						url:"${basePath}/init/goods_list"
+					}
+				},{
+					text:"产羔管理",
 					attributes:{
 						url:"${basePath}/init/goods_list"
 					}
@@ -52,48 +57,33 @@
 			},{
 				text:"报表管理",	
 				children:[{
-					text:"库存月报",
+					text:"季度流产统计",
 					attributes:{
 						url:"${basePath}/report/month_input"
 					}
 				}]
 			},{
-				text:"羊场基础信息管理",	
+				text:"疾病管理",	
 				children:[{
-					text:"员工管理",
+					text:"疾病记录",
 					attributes:{
 						url:"${basePath}/init/user_list"
 					}
 				},{
-					text:"牧场管理",
+					text:"防疫记录",
 					attributes:{
 						url:"${basePath}/init/dept_list"
 					}
 				},{
-					text:"饲料仓库管理",
+					text:"药品管理",
 					attributes:{
 						url:"${basePath}/init/stock_list"
-					}
-				},{
-					text:"饲料产地管理",
-					attributes:{
-						url:"${basePath}/init/stock_list"
-					}
-				},{
-					text:"饲料供应商管理",
-					attributes:{
-						url:"${basePath}/init/supplier_list"
 					}
 				}]
 			},{
 				text:"系统设置",	
 				children:[{
-					text:"免疫保健设置",
-					attributes:{
-						url:"${basePath}/report/month_input"
-					}
-				},{
-					text:"免疫保健提醒设置",
+					text:"免疫接种提醒",
 					attributes:{
 						url:"${basePath}/report/month_input"
 					}
