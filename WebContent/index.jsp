@@ -82,7 +82,7 @@
 				},{
 					text:"免疫保健提醒设置",
 					attributes:{
-						url:"${basePath}/report/month_input"
+						url:"${basePath}/init/remind_list"
 					}
 				}]
 			}];

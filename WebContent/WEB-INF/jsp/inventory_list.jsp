@@ -22,8 +22,8 @@
 			    {field : 'productName',title : '饲料名称',halign:'center',width : 160},
 			    {field : 'productStandard',title : '饲料规格',halign:'center',width : 120}, 
 			    {field : 'unit',title : '计量单位',halign:'center',width : 80},
-			    {field : 'inventoryNum',title : '数量',halign:'center',width : 80},
-			    {field : 'inventoryPrice',title : '金额',halign:'center',width : 80}
+			    {field : 'numbers',title : '数量',halign:'center',width : 80},
+			    {field : 'price',title : '金额',halign:'center',width : 80}
 			]]
 		});	
 		
@@ -57,8 +57,8 @@
 		<select id="search-stockId" name="stockId">
 			<option value="">---请选择---</option>
 		</select> 
-		<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-search" onclick="doSearch()">查询</a>
-		<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-clear" onclick="doClear()">清除</a>
+		<a href="####" class="easyui-linkbutton" plain="true" iconCls="icon-search" onclick="doSearch()">查询</a>
+		<a href="####" class="easyui-linkbutton" plain="true" iconCls="icon-clear" onclick="doClear()">清除</a>
 	</div>
 	<table id="data-table"  style="height:510px" title="数据列表" width="85%"></table>
 	<div id="dlg-frame">
