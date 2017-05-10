@@ -77,7 +77,7 @@
 				children:[{
 					text:"免疫保健设置",
 					attributes:{
-						url:"${basePath}/report/month_input"
+						url:"${basePath}/init/immune_list"
 					}
 				},{
 					text:"免疫保健提醒设置",

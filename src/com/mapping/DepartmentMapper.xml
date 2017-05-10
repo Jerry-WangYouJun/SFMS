@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.DepartmentMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.Department" >
+<mapper namespace="com.mapping.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Department" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="deptDesc" property="deptdesc" jdbcType="VARCHAR" />
     <result column="deptLeader" property="deptleader" jdbcType="VARCHAR" />
@@ -11,7 +11,7 @@
     <result column="parentDeptId" property="parentdeptid" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
-	<select id="selectDept" parameterType="com.hyg.pojo.Department" resultMap="departmentResult">
+	<select id="selectDept" parameterType="com.pojo.Department" resultMap="departmentResult">
 		select
 		b.id ,
 		B.deptDesc,
@@ -36,7 +36,7 @@
          and A.deptNo like CONCAT('%',#{parentno},'%' )  
        </if>
 	</select>
-  <resultMap id="departmentResult" type="com.hyg.pojo.Department">
+  <resultMap id="departmentResult" type="com.pojo.Department">
 		<id column="id" property="id" jdbcType="INTEGER" />
 	    <result column="deptDesc" property="deptdesc" jdbcType="VARCHAR" />
 	    <result column="deptLeader" property="deptleader" jdbcType="VARCHAR" />
@@ -46,7 +46,7 @@
 	    <result column="dept_parent_id" property="parentdeptid" jdbcType="VARCHAR" />
 	    <result column="remark" property="remark" jdbcType="VARCHAR" />
 		<association property="department" column="dept_parent_id"
-			javaType="com.hyg.pojo.Department">
+			javaType="com.pojo.Department">
 			<id property="id" column="parent_id" />
 			<result property="deptno" column="parent_deptNo" />
 		</association>
@@ -71,7 +71,7 @@
     from department
   </select>
   
-    <select id="selectDeptCountByWhere" resultType="java.lang.Long" parameterType="com.hyg.pojo.Department" >
+    <select id="selectDeptCountByWhere" resultType="java.lang.Long" parameterType="com.pojo.Department" >
     select 
     	count(*) 
     from  department B
@@ -92,7 +92,7 @@
     delete from department
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.Department" >
+  <insert id="insert" parameterType="com.pojo.Department" >
     insert into department (ID, deptDesc, deptLeader, 
       deptName, deptNo, deptTel, 
       parentDeptId, remark)
@@ -100,7 +100,7 @@
       #{deptname,jdbcType=VARCHAR}, #{deptno,jdbcType=VARCHAR}, #{depttel,jdbcType=VARCHAR}, 
       #{parentdeptid,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.Department" >
+  <insert id="insertSelective" parameterType="com.pojo.Department" >
     insert into department
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -155,7 +155,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Department" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Department" >
     update department
     <set >
       <if test="deptdesc != null" >
@@ -182,7 +182,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.Department" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Department" >
     update department
     set deptDesc = #{deptdesc,jdbcType=VARCHAR},
       deptLeader = #{deptleader,jdbcType=VARCHAR},

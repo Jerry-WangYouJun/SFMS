@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.DictionaryMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.Dictionary" >
+<mapper namespace="com.mapping.DictionaryMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Dictionary" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="dicCode" property="diccode" jdbcType="VARCHAR" />
     <result column="dicNo" property="dicno" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     where dicNo = #{dicNo}
   </select>
   
-  <select id="selectDicsCountBywhere" resultType="java.lang.Long" parameterType="com.hyg.pojo.Dictionary" >
+  <select id="selectDicsCountBywhere" resultType="java.lang.Long" parameterType="com.pojo.Dictionary" >
     select 
     count(1)
     from dictionary where 1=1 
@@ -43,7 +43,7 @@
        </if>
   </select>
   
-  <select id="selectDicsBywhere" resultMap="BaseResultMap" parameterType="com.hyg.pojo.Dictionary" >
+  <select id="selectDicsBywhere" resultMap="BaseResultMap" parameterType="com.pojo.Dictionary" >
     select 
     <include refid="Base_Column_List" />
     from dictionary where 1=1 
@@ -61,7 +61,7 @@
     delete from dictionary
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.Dictionary" >
+  <insert id="insert" parameterType="com.pojo.Dictionary" >
     insert into dictionary (ID, dicCode, dicNo, 
       dicSort, dicType, dicValue, 
       remark, validateFlag)
@@ -69,7 +69,7 @@
       #{dicsort,jdbcType=VARCHAR}, #{dictype,jdbcType=VARCHAR}, #{dicvalue,jdbcType=VARCHAR}, 
       #{remark,jdbcType=VARCHAR}, #{validateflag,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.Dictionary" >
+  <insert id="insertSelective" parameterType="com.pojo.Dictionary" >
     insert into dictionary
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -124,7 +124,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Dictionary" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Dictionary" >
     update dictionary
     <set >
       <if test="diccode != null" >
@@ -151,7 +151,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.Dictionary" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Dictionary" >
     update dictionary
     set dicCode = #{diccode,jdbcType=VARCHAR},
       dicNo = #{dicno,jdbcType=VARCHAR},

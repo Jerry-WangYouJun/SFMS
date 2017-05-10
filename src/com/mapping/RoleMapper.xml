@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.RoleMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.Role" >
+<mapper namespace="com.mapping.RoleMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Role" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="roleLevel" property="rolelevel" jdbcType="VARCHAR" />
@@ -17,7 +17,7 @@
     from role
     where ID = #{id,jdbcType=INTEGER}
   </select>
-   <select id="selectRoleCountByWhere" resultType="java.lang.Long" parameterType="com.hyg.pojo.Supplier" >
+   <select id="selectRoleCountByWhere" resultType="java.lang.Long" parameterType="com.pojo.Supplier" >
     select 
     count(1)
     from role where 1=1 
@@ -32,7 +32,7 @@
        </if>
   </select>
   
-  <select id="selectRoleByWhere" resultMap="BaseResultMap" parameterType="com.hyg.pojo.Role" >
+  <select id="selectRoleByWhere" resultMap="BaseResultMap" parameterType="com.pojo.Role" >
     select 
     <include refid="Base_Column_List" />
     from role where 1=1 
@@ -50,13 +50,13 @@
     delete from role
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.Role" >
+  <insert id="insert" parameterType="com.pojo.Role" >
     insert into role (ID, remark, roleLevel, 
       roleName, roleNo)
     values (#{id,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{rolelevel,jdbcType=VARCHAR}, 
       #{rolename,jdbcType=VARCHAR}, #{roleno,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.Role" >
+  <insert id="insertSelective" parameterType="com.pojo.Role" >
     insert into role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -93,7 +93,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Role" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Role" >
     update role
     <set >
       <if test="remark != null" >
@@ -111,7 +111,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.Role" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Role" >
     update role
     set remark = #{remark,jdbcType=VARCHAR},
       roleLevel = #{rolelevel,jdbcType=VARCHAR},

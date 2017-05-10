@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.BedMapper">
     <!-- 解决表名与字段不匹配 -->
-    <resultMap type="Bed"  id="bedResultMap">
+    <resultMap type="com.core.Bed"  id="bedResultMap">
         <id property="id" column="id"/>
         <result property="code" column="code"/>
         <result property="room" column="room"/>
@@ -11,12 +11,12 @@
          <result property="description" column="description"/>
     </resultMap>
     
-    <select id="findAllBed" resultMap="bedResultMap" resultType="Bed">
+    <select id="findAllBed" resultMap="bedResultMap" resultType="com.core.Bed">
         select * from t_bed
     </select>
     
     
-    <select id="queryBedsByWhere" resultMap="bedResultMap" resultType="Bed" parameterType="Bed">
+    <select id="queryBedsByWhere" resultMap="bedResultMap" resultType="com.core.Bed" parameterType="com.core.Bed">
         select * from t_bed <include refid="where" />
     </select>
     
@@ -38,7 +38,7 @@
     </where>
     </sql>
     
-    <insert id="insertBed" parameterType="Bed">
+    <insert id="insertBed" parameterType="com.core.Bed">
     	  insert into t_bed ( 
     	  <if test="room != null  and room !=''"> 
     	  room , 
@@ -57,12 +57,12 @@
     	  #{code}
     	  )
     </insert>
-    <update id="updateBed" parameterType="Bed">
+    <update id="updateBed" parameterType="com.core.Bed">
     	 update t_bed set code = #{code} , room = #{room} , area = #{area} , 
     	 description= #{description} where id = #{id}
     </update>
     
-    <delete id="deleteBed" parameterType="Bed">
+    <delete id="deleteBed" parameterType="com.core.Bed">
          delete from t_bed where id=#{id}
     </delete>
 </mapper>

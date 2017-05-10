@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.OutstockMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.Outstock" >
+<mapper namespace="com.mapping.OutstockMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Outstock" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="outstockNo" property="outstockno" jdbcType="VARCHAR" />
     <result column="stockId" property="stockid" jdbcType="VARCHAR" />
@@ -99,7 +99,7 @@
     delete from outstock
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.Outstock" >
+  <insert id="insert" parameterType="com.pojo.Outstock" >
     insert into outstock (ID, outstockNo, stockId, 
       supplierId, outstockDate, outstockState, 
       remark , goodid , outstockNum )
@@ -107,7 +107,7 @@
       #{supplierid,jdbcType=VARCHAR}, #{outstockdate,jdbcType=TIMESTAMP}, #{outstockstate,jdbcType=VARCHAR}, 
       #{remark,jdbcType=VARCHAR} , #{goodid,jdbcType=VARCHAR} , #{outstockNum,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.Outstock" >
+  <insert id="insertSelective" parameterType="com.pojo.Outstock" >
     insert into outstock
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -168,7 +168,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Outstock" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Outstock" >
     update outstock
     <set >
       <if test="outstockno != null" >
@@ -198,7 +198,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.Outstock" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Outstock" >
     update outstock
     set outstockNo = #{outstockno,jdbcType=VARCHAR},
       stockId = #{stockid,jdbcType=VARCHAR},

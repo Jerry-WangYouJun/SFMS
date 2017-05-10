@@ -10,8 +10,8 @@
                         http://www.springframework.org/schema/mvc  
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-	<context:component-scan base-package="com.hyg.controller" />
-	<context:component-scan base-package="com.hyg.service" />
+	<context:component-scan base-package="com.controller" />
+	<context:component-scan base-package="com.service" />
 	<!-- 剔除静态资源 -->
 	<!-- <mvc:annotation-driven  conversion-service="conversionService"></mvc:annotation-driven> -->
 	<!-- <mvc:annotation-driven>
@@ -21,7 +21,7 @@
             </bean>  
         </mvc:message-converters>  
     </mvc:annotation-driven>  
-    <bean id="customObjectMapper" class="com.hyg.core.CustomObjectMapper"></bean> -->
+    <bean id="customObjectMapper" class="com.core.CustomObjectMapper"></bean> -->
     <mvc:annotation-driven>
      <!-- 全局处理处理responseBody 里面日期类型 -->  
     	<mvc:message-converters>  
@@ -50,14 +50,14 @@
 		<property name="converters">
 			<list>
 				日期类型转换
-				<bean class="com.hyg.converter.CustomDateConverter" />
+				<bean class="com.converter.CustomDateConverter" />
 			</list>
 		</property>
 	</bean> -->
 	<!-- <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="formatters">
 			<set>
-				<bean class="com.hyg.converter.DateFormatter">
+				<bean class="com.converter.DateFormatter">
 					<constructor-arg type="java.lang.String" value="yyyy-MM-dd"></constructor-arg>
 				</bean>
 			</set>

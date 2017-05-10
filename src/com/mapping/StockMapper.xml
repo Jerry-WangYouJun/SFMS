@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.StockMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.Stock" >
+<mapper namespace="com.mapping.StockMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Stock" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="stockNo" property="stockno" jdbcType="VARCHAR" />
     <result column="stockName" property="stockname" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
   </select>
   
   
-  <select id="selectCountByWhere" resultType="java.lang.Long" parameterType="com.hyg.pojo.Stock" >
+  <select id="selectCountByWhere" resultType="java.lang.Long" parameterType="com.pojo.Stock" >
     select 
     count(1)
     from stock where 1=1 
@@ -42,7 +42,7 @@
        </if>
   </select>
   
-  <select id="selectByWhere" resultMap="BaseResultMap" parameterType="com.hyg.pojo.Stock" >
+  <select id="selectByWhere" resultMap="BaseResultMap" parameterType="com.pojo.Stock" >
     select 
     <include refid="Base_Column_List" />
     from stock where 1=1 
@@ -60,7 +60,7 @@
     delete from stock
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.Stock" >
+  <insert id="insert" parameterType="com.pojo.Stock" >
     insert into stock (ID, stockNo, stockName, 
       provinceCode, stockAddress, stockTel, 
       userId, remark)
@@ -68,7 +68,7 @@
       #{provincecode,jdbcType=VARCHAR}, #{stockaddress,jdbcType=VARCHAR}, #{stocktel,jdbcType=VARCHAR}, 
       #{userid,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.Stock" >
+  <insert id="insertSelective" parameterType="com.pojo.Stock" >
     insert into stock
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -123,7 +123,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Stock" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Stock" >
     update stock
     <set >
       <if test="stockno != null" >
@@ -150,7 +150,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.Stock" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Stock" >
     update stock
     set stockNo = #{stockno,jdbcType=VARCHAR},
       stockName = #{stockname,jdbcType=VARCHAR},

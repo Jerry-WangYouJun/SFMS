@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.OutstockDetailMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.OutstockDetail" >
+<mapper namespace="com.mapping.OutstockDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.OutstockDetail" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="outstockId" property="outstockid" jdbcType="VARCHAR" />
     <result column="productNo" property="productno" jdbcType="VARCHAR" />
@@ -33,7 +33,7 @@
     delete from outstockdetail
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.OutstockDetail" >
+  <insert id="insert" parameterType="com.pojo.OutstockDetail" >
     insert into outstockdetail (ID, outstockId, productNo, 
       productName, productStandard, productNum, 
       unit, price, totalPrice, 
@@ -43,7 +43,7 @@
       #{unit,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{totalprice,jdbcType=DECIMAL}, 
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.OutstockDetail" >
+  <insert id="insertSelective" parameterType="com.pojo.OutstockDetail" >
     insert into outstockdetail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -110,7 +110,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.OutstockDetail" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.OutstockDetail" >
     update outstockdetail
     <set >
       <if test="outstockid != null" >
@@ -143,7 +143,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.OutstockDetail" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.OutstockDetail" >
     update outstockdetail
     set outstockId = #{outstockid,jdbcType=VARCHAR},
       productNo = #{productno,jdbcType=VARCHAR},

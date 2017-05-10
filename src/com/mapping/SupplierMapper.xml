@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.SupplierMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.Supplier" >
+<mapper namespace="com.mapping.SupplierMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Supplier" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="supplierNo" property="supplierno" jdbcType="VARCHAR" />
     <result column="supplierName" property="suppliername" jdbcType="VARCHAR" />
@@ -30,7 +30,7 @@
     <include refid="Base_Column_List" />
     from supplier
   </select>
-   <select id="selectSupplierCountByWhere" resultType="java.lang.Long" parameterType="com.hyg.pojo.Supplier" >
+   <select id="selectSupplierCountByWhere" resultType="java.lang.Long" parameterType="com.pojo.Supplier" >
     select 
     count(1)
     from supplier where 1=1 
@@ -48,7 +48,7 @@
        </if>
   </select>
   
-  <select id="selectSupplierByWhere" resultMap="BaseResultMap" parameterType="com.hyg.pojo.Supplier" >
+  <select id="selectSupplierByWhere" resultMap="BaseResultMap" parameterType="com.pojo.Supplier" >
     select 
     <include refid="Base_Column_List" />
     from supplier where 1=1 
@@ -69,7 +69,7 @@
     delete from supplier
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.Supplier" >
+  <insert id="insert" parameterType="com.pojo.Supplier" >
     insert into supplier (ID, supplierNo, supplierName, 
       provinceCode, supplierAddress, supplierEmail, 
       supplierTel, supplierTax, userName, 
@@ -81,7 +81,7 @@
       #{usertel,jdbcType=VARCHAR}, #{usertex,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.Supplier" >
+  <insert id="insertSelective" parameterType="com.pojo.Supplier" >
     insert into supplier
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -160,7 +160,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Supplier" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Supplier" >
     update supplier
     <set >
       <if test="supplierno != null" >
@@ -199,7 +199,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.Supplier" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Supplier" >
     update supplier
     set supplierNo = #{supplierno,jdbcType=VARCHAR},
       supplierName = #{suppliername,jdbcType=VARCHAR},

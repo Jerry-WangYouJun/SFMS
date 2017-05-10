@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.User" >
+<mapper namespace="com.mapping.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.User" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="age" property="age" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     where ID = #{id,jdbcType=INTEGER}
   </select>
   
-  <select id="selectByUserNoAndPwd" resultMap="BaseResultMap" parameterType="com.hyg.pojo.User" >
+  <select id="selectByUserNoAndPwd" resultMap="BaseResultMap" parameterType="com.pojo.User" >
     select 
     <include refid="Base_Column_List" />
     from user
@@ -79,7 +79,7 @@
     delete from user
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.User" >
+  <insert id="insert" parameterType="com.pojo.User" >
     insert into user (ID, age, email, 
       hometown, position, pwd, 
       remark, sex, telphone, 
@@ -91,7 +91,7 @@
       #{username,jdbcType=VARCHAR}, #{userno,jdbcType=VARCHAR}, #{deptid,jdbcType=INTEGER}, 
       #{roleid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.User" >
+  <insert id="insertSelective" parameterType="com.pojo.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -176,7 +176,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.User" >
     update user
     <set >
       <if test="age != null" >
@@ -218,7 +218,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.User" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.User" >
     update user
     set age = #{age,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},

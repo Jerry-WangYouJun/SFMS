@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.InstockMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.Instock" >
+<mapper namespace="com.mapping.InstockMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Instock" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="instockDate" property="instockdate" jdbcType="TIMESTAMP" />
     <result column="instockNo" property="instockno" jdbcType="VARCHAR" />
@@ -128,7 +128,7 @@
     delete from instock
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.Instock" >
+  <insert id="insert" parameterType="com.pojo.Instock" >
     insert into instock (ID, instockDate, instockNo, 
       instockState, remark, stockId, 
       supplierId , goodId ,numbers)
@@ -136,7 +136,7 @@
       #{instockstate,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{stockid,jdbcType=VARCHAR}, 
       #{supplierid,jdbcType=VARCHAR} , #{goodId,jdbcType=VARCHAR} , #{numbers,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.Instock" >
+  <insert id="insertSelective" parameterType="com.pojo.Instock" >
     insert into instock
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -191,7 +191,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Instock" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Instock" >
     update instock
     <set >
       <if test="instockdate != null" >
@@ -221,7 +221,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.Instock" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Instock" >
     update instock
     set instockDate = #{instockdate,jdbcType=TIMESTAMP},
       instockNo = #{instockno,jdbcType=VARCHAR},

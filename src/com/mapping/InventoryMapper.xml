@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.InventoryMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.Inventory" >
+<mapper namespace="com.mapping.InventoryMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Inventory" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="stockId" property="stockid" jdbcType="VARCHAR" />
     <result column="productNo" property="productno" jdbcType="VARCHAR" />
@@ -184,7 +184,7 @@
     delete from inventory
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.Inventory" >
+  <insert id="insert" parameterType="com.pojo.Inventory" >
     insert into inventory (ID, stockId, productNo, 
       productName, productStandard, inventoryNum, 
       inventoryPrice, maxNum, minNum, 
@@ -194,7 +194,7 @@
       #{inventoryprice,jdbcType=DECIMAL}, #{maxnum,jdbcType=DECIMAL}, #{minnum,jdbcType=DECIMAL}, 
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.Inventory" >
+  <insert id="insertSelective" parameterType="com.pojo.Inventory" >
     insert into inventory
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -261,7 +261,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Inventory" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Inventory" >
     update inventory
     <set >
       <if test="stockid != null" >
@@ -294,7 +294,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.Inventory" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Inventory" >
     update inventory
     set stockId = #{stockid,jdbcType=VARCHAR},
       productNo = #{productno,jdbcType=VARCHAR},

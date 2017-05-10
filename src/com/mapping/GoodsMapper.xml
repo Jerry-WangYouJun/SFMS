@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hyg.mapping.GoodsMapper" >
-  <resultMap id="BaseResultMap" type="com.hyg.pojo.Goods" >
+<mapper namespace="com.mapping.GoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Goods" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="productNo" property="productno" jdbcType="VARCHAR" />
     <result column="productName" property="productname" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     where ID = #{id,jdbcType=INTEGER}
   </select>
   
-   <select id="findGoodsCountByWhere" resultType="java.lang.Long" parameterType="com.hyg.pojo.Goods" >
+   <select id="findGoodsCountByWhere" resultType="java.lang.Long" parameterType="com.pojo.Goods" >
     select 
     count(1)
     from goods
@@ -61,7 +61,7 @@
     </if>
   </select>
   
-  <select id="selectGoodsByWhere" resultMap="BaseResultMap" parameterType="com.hyg.pojo.Goods" >
+  <select id="selectGoodsByWhere" resultMap="BaseResultMap" parameterType="com.pojo.Goods" >
     select 
     <include refid="Base_Column_List" />
     from goods
@@ -149,7 +149,7 @@
     delete from goods
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.hyg.pojo.Goods" >
+  <insert id="insert" parameterType="com.pojo.Goods" >
     insert into goods (ID, productNo, productName, 
       productType, productStandard, supplierId, 
       productDate, unit, price, 
@@ -159,7 +159,7 @@
       #{productdate,jdbcType=TIMESTAMP}, #{unit,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hyg.pojo.Goods" >
+  <insert id="insertSelective" parameterType="com.pojo.Goods" >
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -226,7 +226,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Goods" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Goods" >
     update goods
     <set >
       <if test="productno != null" >
@@ -259,7 +259,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hyg.pojo.Goods" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Goods" >
     update goods
     set productNo = #{productno,jdbcType=VARCHAR},
       productName = #{productname,jdbcType=VARCHAR},
