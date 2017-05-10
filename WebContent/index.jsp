@@ -50,14 +50,6 @@
 					}
 				}]
 			},{
-				text:"报表管理",	
-				children:[{
-					text:"库存月报",
-					attributes:{
-						url:"${basePath}/report/month_input"
-					}
-				}]
-			},{
 				text:"羊场基础信息管理",	
 				children:[{
 					text:"员工管理",
@@ -71,11 +63,6 @@
 					}
 				},{
 					text:"饲料仓库管理",
-					attributes:{
-						url:"${basePath}/init/stock_list"
-					}
-				},{
-					text:"饲料产地管理",
 					attributes:{
 						url:"${basePath}/init/stock_list"
 					}
