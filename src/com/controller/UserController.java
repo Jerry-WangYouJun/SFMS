@@ -11,7 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.github.pagehelper.PageHelper;
 import com.core.model.Grid;
+import com.github.pagehelper.PageHelper;
 import com.pojo.Department;
 import com.pojo.Dictionary;
 import com.pojo.User;
@@ -40,24 +39,6 @@ public class UserController {
 	@Resource(name="dictionaryServiceImpl")
 	private DictionaryServiceI dictionaryService;
 	
-	
-	/*@RequestMapping("/checkUser1")
-	public String checkUser(HttpServletRequest request,RedirectAttributes redirectAttributes) {
-
-		String userNo = request.getParameter("userNo");
-		String pwd = request.getParameter("pwd");
-		User user = this.userService.findUserForLogin(userNo,pwd);
-		if (user == null) {
-			redirectAttributes.addFlashAttribute("msg","用户名或密码错误!");
-			
-			//重定向
-			return "redirect:/login.jsp";
-		}else{
-			redirectAttributes.addFlashAttribute("user", user);
-			return "redirect:/index.jsp";
-		}
-	}*/
-	
 	@RequestMapping("/checkUser")
 	public void checkUser(HttpServletRequest request,HttpServletResponse response) {
 
@@ -76,10 +57,8 @@ public class UserController {
 		try {
 			rd.forward(request, response);
 		} catch (ServletException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
