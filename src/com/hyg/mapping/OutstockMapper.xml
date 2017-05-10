@@ -29,11 +29,15 @@
 		p.supplierName AS supplierName,
 		o.outstockDate AS outstockDate,
 		o.outstockState AS outstockState,
-		o.remark AS remark
+		o.remark AS remark , 
+		g.productNo , 
+		g.productName , 
+		o.outstockNum
 	FROM
 		outstock o
 	LEFT JOIN stock s ON o.stockId = s.ID
 	LEFT JOIN supplier p ON o.supplierId = p.ID
+	left join goods g on g.id = o.goodid
 	where 1=1
 	<if test="id != null and id !='' " >
        and o.ID = #{id}
@@ -98,10 +102,10 @@
   <insert id="insert" parameterType="com.hyg.pojo.Outstock" >
     insert into outstock (ID, outstockNo, stockId, 
       supplierId, outstockDate, outstockState, 
-      remark)
+      remark , goodid , outstockNum )
     values (#{id,jdbcType=INTEGER}, #{outstockno,jdbcType=VARCHAR}, #{stockid,jdbcType=VARCHAR}, 
       #{supplierid,jdbcType=VARCHAR}, #{outstockdate,jdbcType=TIMESTAMP}, #{outstockstate,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR})
+      #{remark,jdbcType=VARCHAR} , #{goodid,jdbcType=VARCHAR} , #{outstockNum,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.hyg.pojo.Outstock" >
     insert into outstock
@@ -127,6 +131,12 @@
       <if test="remark != null" >
         remark,
       </if>
+      <if test="goodid != null" >
+        goodid,
+      </if>
+      <if test="outstockNum != null" >
+        outstockNum,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -150,6 +160,12 @@
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
+      <if test="goodid != null" >
+        #{goodid,jdbcType=VARCHAR},
+      </if>
+      <if test="outstockNum != null" >
+        #{outstockNum,outstockNum=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.hyg.pojo.Outstock" >
@@ -172,6 +188,12 @@
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="goodid != null" >
+        goodid = #{goodid,jdbcType=VARCHAR},
+      </if>
+      <if test="outstockNum != null" >
+        outstockNum = #{outstockNum,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}

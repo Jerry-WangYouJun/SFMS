@@ -29,11 +29,6 @@
 				$.messager.alert('提示',"当前出库申请单无效，请检查!","error");
 				return;
 			}
-			if (outstockState != "00") {
-				$.messager.alert('提示',"当前出库申请单状态不是【创建状态】，无法进行确认操作，请检查!","error");
-				return;
-			}
-			
 			//自动保存编辑状态的数据
 			var row = $('#goods').edatagrid('getSelected');
 			if(row != null){

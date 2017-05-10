@@ -33,8 +33,8 @@
        	});
 	}
 	$(function(){
-		initDictionarySelect("productType", "#producttypecode");
-		initSupplierSelect("#supplierno");
+		initDictionarySelect("productType", "#productTypeCode");
+		initSupplierSelect("#supplierNo");
 	});
 </script>
 </head>
@@ -42,29 +42,29 @@
 	<form id="goodsForm" action="${basePath}/admin/GoodsServlet?flag=insert" method="post">
 	  <table width="100%">
 	  	<tr>
-	  		<td>产品编码：</td>
+	  		<td>饲料编码：</td>
 	  		<td>
 	  			<input type="text" name="productno" size="14" />
 	  		</td>
-	  		<td>产品分类：</td>
+	  		<td>饲料分类：</td>
 	  		<td>
 	  			<select id="productTypeCode" name="producttype">
 	  				<option value="">---请选择---</option>
 	  			</select>
 	  		</td>
-	  		<td>产品供货商：</td>
+	  		<td>饲料供货商：</td>
 	  		<td>
-	  			<select id="supplierNo" name="supplierno" >
+	  			<select id="supplierNo" name="supplierNo" >
 	  				<option value="">---请选择---</option>
 	  			</select>
 	  		</td>
 	  	</tr>
 	  	<tr>
-	  		<td>产品名称：</td>
+	  		<td>饲料名称：</td>
 	  		<td>
 	  			<input type="text" name="productname" size="14"  />
 	  		</td>
-	  		<td>产品规格：</td>
+	  		<td>饲料规格：</td>
 	  		<td>
 	  			<input type="text" id="productStandard" name="productstandard" size="14"  />
 	  		</td>
@@ -75,7 +75,7 @@
 	  		</td>
 	  	</tr>
 	  	<tr>
-	  		<td>产品数量：</td>
+	  		<td>饲料数量：</td>
 	  		<td>
 	  			<input type="text" name="productnum" size="14"></input>
 	  		</td>
@@ -83,7 +83,7 @@
 	  		<td>
 	  			<input type="text" name="unit" size="14"></input>
 	  		</td>
-	  		<td>产品单价：</td>
+	  		<td>饲料单价：</td>
 	  		<td>
 	  			<input type="text" name="price" size="14"></input>
 	  		</td>

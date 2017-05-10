@@ -12,12 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import sun.swing.StringUIClientPropertyKey;
-
 import com.github.pagehelper.PageHelper;
 import com.hyg.core.StringUtils;
 import com.hyg.core.model.Grid;
-import com.hyg.pojo.Inventory;
 import com.hyg.service.InventoryServiceI;
 
 @Controller
@@ -52,11 +49,11 @@ public class InventoryController extends BaseController {
 			param.put("stockId",  stockId );
 		}
 		
-		PageHelper.startPage(Integer.parseInt(page),Integer.parseInt(pageSize));
-		PageHelper.orderBy("stockId");
+//		PageHelper.startPage(Integer.parseInt(page),Integer.parseInt(pageSize));
+//		PageHelper.orderBy("stockId");
 		
 		List<Map> result = this.inventoryService.findByWhere(param);
-		Long total = this.inventoryService.findCountByWhere(param);
+		Long total = Long.valueOf(result.size()) ;
 		
 		grid.setRows(result);
 		grid.setTotal(total);

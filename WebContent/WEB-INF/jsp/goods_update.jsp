@@ -68,7 +68,7 @@
 	  		</td>
 	  		<td>产品供货商：</td>
 	  		<td>
-	  			<select id="supplierno" name="supplierno" >
+	  			<select id="supplierNo" name="supplierno" >
 	  				<option value="">---请选择---</option>
 	  			</select>
 	  		</td>

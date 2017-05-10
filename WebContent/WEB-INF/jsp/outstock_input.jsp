@@ -81,9 +81,24 @@
 		  				<form:option value="">---请选择----</form:option>
 		  			</form:select>
 		  		</td>
-		  		<td class="td">备注：</td>
-		  		<td class="td" colspan="3" >
-		  			<form:textarea path="remark" rows="3" cols="60"/>
+		  		<td class="td">出库饲料：</td>
+		  		<td class="td">
+		  			<form:select id="goodid"  path="goodid" >
+		  				<c:forEach items="${goods}" var = "good">
+		  				 	  <form:option value="${good.id }">${good.productname }</form:option>
+		  				</c:forEach>
+		  			</form:select>
+		  		</td>
+		  		<td class="td">数量：</td>
+		  		<td class="td"  >
+		  			<form:input id="outstockNum" path="outstockNum"/>
+		  		</td>
+		  		
+		  	</tr>
+		  	<tr>
+		  		 <td class="td">备注：</td>
+		  		<td class="td"  >
+		  			<form:textarea path="remark" />
 		  		</td>
 		  	</tr>
 		  </table>

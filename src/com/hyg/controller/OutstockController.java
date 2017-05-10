@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.github.pagehelper.PageHelper;
 import com.hyg.core.DateUtils;
 import com.hyg.core.model.Grid;
+import com.hyg.pojo.Goods;
 import com.hyg.pojo.Outstock;
 import com.hyg.pojo.Stock;
 import com.hyg.pojo.Supplier;
@@ -80,7 +81,9 @@ public class OutstockController extends BaseController {
 		//供应商下拉框
 		List<Supplier> suppliers = this.getSupplierSelects();
 		
+		List<Goods> goods = this.getGoodSelects();
 		
+		modelAndView.addObject("goods",goods);
 		modelAndView.addObject("outstock",outstock);
 		modelAndView.addObject("stocks",stocks);
 		modelAndView.addObject("suppliers",suppliers);
@@ -111,6 +114,10 @@ public class OutstockController extends BaseController {
 		List<Stock> stocks = this.getStockSelects();
 		//供应商下拉框
 		List<Supplier> suppliers = this.getSupplierSelects();
+		
+		List<Goods> goods = this.getGoodSelects();
+		
+		map.put("goods",goods);
 		map.put("outstock", outstock);
 		map.put("stocks",stocks);
 		map.put("suppliers", suppliers);

@@ -47,7 +47,7 @@
 </head>
 <body>
 	<center>
-		<h1>入库申请单1111111</h1>
+		<h1>入库申请单</h1>
 	</center>
 	
 	<form:form id="instockForm"  action="${basePath}/instock/save" modelAttribute="instock" method="post">
@@ -78,12 +78,26 @@
 		  		<td class="td">供货商：</td>
 		  		<td class="td">
 		  			<form:select id="supplierId"  path="supplierid" items="${requestScope.suppliers }" itemLabel="suppliername" itemValue="id">
-		  				<form:option value="">---请选择----</form:option>
+		  						<form:option value="">---请选择----</form:option>
 		  			</form:select>
 		  		</td>
-		  		<td class="td">备注：</td>
-		  		<td class="td" colspan="3" >
-		  			<form:textarea path="remark" rows="3" cols="60"/>
+		  		<td class="td">入库饲料：</td>
+		  		<td class="td">
+		  			<form:select id="goodId"  path="goodId" >
+		  				<c:forEach items="${goods}" var = "good">
+		  				 	  <form:option value="${good.id }">${good.productname }</form:option>
+		  				</c:forEach>
+		  			</form:select>
+		  		</td>
+		  		<td class="td">数量：</td>
+		  		<td class="td"  >
+		  			<form:input id="numbers" path="numbers"/>
+		  		</td>
+		  	</tr>
+		  	<tr>
+		  		 <td class="td">备注：</td>
+		  		<td class="td"  >
+		  			<form:textarea path="remark" />
 		  		</td>
 		  	</tr>
 		  </table>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>产品管理</title>
+<title>饲料管理</title>
 	<jsp:include page="/common.jsp"></jsp:include>
 	<script type="text/javascript">
 		$(function(){
@@ -30,10 +30,10 @@
 				}],
 				columns:[[
 				    {field : 'id',align : 'center',halign:'center',checkbox : true}, 
-				    {field : 'productno',title : '产品编码',halign:'center',width : 120},
-				    {field : 'productname',title : '产品名称',halign:'center',width : 150},
-				    {field : 'producttype',title : '产品分类',halign:'center',width : 80},
-				    {field : 'productstandard',title : '产品规格',halign:'center',width : 80}, 
+				    {field : 'productno',title : '饲料编码',halign:'center',width : 120},
+				    {field : 'productname',title : '饲料名称',halign:'center',width : 150},
+				    {field : 'producttype',title : '饲料分类',halign:'center',width : 80},
+				    {field : 'productstandard',title : '饲料规格',halign:'center',width : 80}, 
 				    {field : 'supplierid',title : '供应商',halign:'center',width : 150,formatter:function(value,rowData,rowIndex){
 				    	if(value){
 				    		return "未知"
@@ -41,13 +41,13 @@
 				    }},
 				    {field : 'productdate',title : '生产日期',halign:'center',width : 80},
 				    {field : 'unit',title : '计量单位',halign:'center',width : 80}, 
-				    {field : 'price',title : '产品单价',halign:'center',width : 80}, 
+				    {field : 'price',title : '饲料单价',halign:'center',width : 80}, 
 				    {field : 'remark',title : '备注',halign:'center',width : 200}
 				]]
 			});
 			
 			$('#dlg-frame').dialog( {
-				title : '产品管理',
+				title : '饲料管理',
 				width :  900,
 				height : 400,
 				top:50,
@@ -147,13 +147,13 @@
 	<div id="tb" title="查询条件区" class="easyui-panel"  style="padding:3px;width:85%" iconCls="icon-search">
 		<table align="center">
 			<tr>
-				<td><span>产品编码:</span></td>
+				<td><span>饲料编码:</span></td>
 				<td><input id="productno" name="productno"/></td>
-				<td><span>产品名称:</span></td>
+				<td><span>饲料名称:</span></td>
 				<td><input id="productname" name="productname"/></td>
 				<td><span>供应商:</span></td>
 				<td>
-					<select id="supplierno" name="supplierno">
+					<select id="supplierNo" name="supplierno">
 						<option value="">---请选择---</option>
 					</select> 
 				</td>
@@ -162,11 +162,11 @@
 				</td>
 			</tr>
 			<tr>
-				<td><span>产品规格:</span></td>
+				<td><span>饲料规格:</span></td>
 				<td><input id="productstandard" name="productstandard"/></td>
-				<td><span>产品分类:</span></td>
+				<td><span>饲料分类:</span></td>
 				<td>
-					<select id="producttypecode" name="producttypecode">
+					<select id="productTypeCode" name="producttypecode">
 		  				<option value="">---请选择---</option>
 		  			</select>
 				</td>

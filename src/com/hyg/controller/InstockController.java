@@ -18,11 +18,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.github.pagehelper.PageHelper;
 import com.hyg.core.DateUtils;
 import com.hyg.core.model.Grid;
+import com.hyg.pojo.Goods;
 import com.hyg.pojo.Instock;
 import com.hyg.pojo.Stock;
 import com.hyg.pojo.Supplier;
 import com.hyg.service.InstockServiceI;
-import com.hyg.service.InventoryServiceI;
 
 @Controller
 @RequestMapping("/instock")
@@ -80,14 +80,16 @@ public class InstockController extends BaseController {
 		//供应商下拉框
 		List<Supplier> suppliers = this.getSupplierSelects();
 		
+		List<Goods> goods = this.getGoodSelects();
 		
 		modelAndView.addObject("instock",instock);
 		modelAndView.addObject("stocks",stocks);
+		modelAndView.addObject("goods",goods);
 		modelAndView.addObject("suppliers",suppliers);
 		modelAndView.setViewName("/instock_input");
 		return modelAndView;
 	}
-	
+
 	@RequestMapping(value="/save",method=RequestMethod.POST)
 	@ResponseBody
 	public Map saveInstock(Instock instock){
@@ -111,8 +113,12 @@ public class InstockController extends BaseController {
 		List<Stock> stocks = this.getStockSelects();
 		//供应商下拉框
 		List<Supplier> suppliers = this.getSupplierSelects();
-		map.put("instock", instock);
+		
+		List<Goods> goods = this.getGoodSelects();
+		
+		map.put("instock",instock);
 		map.put("stocks",stocks);
+		map.put("goods",goods);
 		map.put("suppliers", suppliers);
 		return "instock_input";
 	}

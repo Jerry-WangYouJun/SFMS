@@ -51,38 +51,119 @@
   </select>
   
   <select id="selectByWhere" resultType="map" parameterType="java.util.HashMap" >
-    SELECT
-		s.stockName ,
-		g.productNo,
-		g.productName,
-		g.productStandard,
-		g.unit,
-		i.inventoryNum,
-		i.inventoryPrice
-	FROM
-		inventory i
-	LEFT JOIN stock s ON i.stockId = s.ID
-	LEFT JOIN goods g ON i.productNo = g.productNo
-	where 1=1 
-	  <if test="itemNo != null and itemNo != ''" >
-        and g.productNo like #{itemNo}
-      </if>
-	  <if test="itemName != null and itemName != ''" >
-        and g.productName like #{itemName}
-      </if>
-	  <if test="stockId != null and stockId != ''" >
-        and i.stockId = #{stockId}
-      </if>
+		    SELECT
+			stockid,
+			stockName,
+			productNo,
+			productName,
+			productStandard,
+			unit,
+			sum(numbers) numbers,
+			price
+		FROM
+			(
+				SELECT
+					stockid,
+					stockName,
+					g.productNo,
+					g.productName,
+					g.productStandard,
+					unit,
+					numbers,
+					price
+				FROM
+					instock i,
+					goods g,
+					stock s
+				WHERE
+					i.goodid = g.id
+				AND i.stockId = s.id
+				GROUP BY
+					g.id,
+					stockName
+				UNION ALL
+					SELECT
+						stockid,
+						stockName,
+						g.productNo,
+						g.productName,
+						g.productStandard,
+						unit,
+						0 - i.outstockNum AS numbers,
+						price
+					FROM
+						outstock i,
+						goods g,
+						stock s
+					WHERE
+						i.goodid = g.id
+					AND i.stockId = s.id
+					GROUP BY
+						g.id,
+						stockName
+			) a
+		WHERE 1=1 
+		  <if test="itemNo != null and itemNo != ''" >
+        	and productNo like #{itemNo}
+	      </if>
+		  <if test="itemName != null and itemName != ''" >
+	        and productName like #{itemName}
+	      </if>
+		  <if test="stockId != null and stockId != ''" >
+	        and stockId = #{stockId}
+	      </if>
+		GROUP BY
+			stockName,
+			productNo 
+	  
   </select>
   
   <select id="selectCountByWhere" resultType="long" parameterType="java.util.HashMap" >
     SELECT
-		count(*)
+		count(stockid)
 	FROM
-		inventory i
-	LEFT JOIN stock s ON i.stockId = s.ID
-	LEFT JOIN goods g ON i.productNo = g.productNo
-	where 1=1 
+		(
+				SELECT
+					stockid,
+					stockName,
+					g.productNo,
+					g.productName,
+					g.productStandard,
+					unit,
+					numbers,
+					price
+				FROM
+					instock i,
+					goods g,
+					stock s
+				WHERE
+					i.goodid = g.id
+				AND i.stockId = s.id
+				GROUP BY
+					g.id,
+					stockName
+				UNION ALL
+					SELECT
+						stockid,
+						stockName,
+						g.productNo,
+						g.productName,
+						g.productStandard,
+						unit,
+						0 - i.outstockNum AS numbers,
+						price
+					FROM
+						outstock i,
+						goods g,
+						stock s
+					WHERE
+						i.goodid = g.id
+					AND i.stockId = s.id
+					GROUP BY
+						g.id,
+						stockName
+			) a
+		WHERE 1=1 
 	  <if test="itemNo != null and itemNo != ''" >
         and g.productNo like #{itemNo}
       </if>
@@ -92,6 +173,9 @@
 	  <if test="stockId != null and stockId != ''" >
         and i.stockId = #{stockId}
       </if>
+      GROUP BY
+			stockName,
+			productNo 
   </select>
   
   

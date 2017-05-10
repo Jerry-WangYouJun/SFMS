@@ -6,10 +6,12 @@ import javax.annotation.Resource;
 
 import com.hyg.pojo.Department;
 import com.hyg.pojo.Dictionary;
+import com.hyg.pojo.Goods;
 import com.hyg.pojo.Stock;
 import com.hyg.pojo.Supplier;
 import com.hyg.service.DepartmentServiceI;
 import com.hyg.service.DictionaryServiceI;
+import com.hyg.service.GoodsServiceI;
 import com.hyg.service.StockServiceI;
 import com.hyg.service.SupplierServiceI;
 
@@ -25,6 +27,9 @@ public class BaseController {
 
 	@Resource(name="supplierServiceImpl")
 	private SupplierServiceI supplierService;
+	
+	@Resource(name="goodsServiceImpl")
+	private GoodsServiceI goodsService;
 	
 	/**
 	 * 部门下拉框
@@ -47,6 +52,11 @@ public class BaseController {
 	 */
 	public List<Supplier> getSupplierSelects(){
 		return this.supplierService.findSupplierDicMaps();
+	}
+	
+	
+	public List<Goods> getGoodSelects() {
+		return this.goodsService.findByAjax("");
 	}
 	/**
 	 * 根据字典编码查找字典下拉框

@@ -20,6 +20,10 @@ public class Outstock {
     private String outstockstate;
 
     private String remark;
+    
+    private int goodid ;
+    
+    private Double outstockNum ;
 
     public Integer getId() {
         return id;
@@ -78,4 +82,22 @@ public class Outstock {
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
+
+	public int getGoodid() {
+		return goodid;
+	}
+
+	public void setGoodid(int goodid) {
+		this.goodid = goodid;
+	}
+
+	public Double getOutstockNum() {
+		return outstockNum;
+	}
+
+	public void setOutstockNum(Double outstockNum) {
+		this.outstockNum = outstockNum;
+	}
+    
+    
 }

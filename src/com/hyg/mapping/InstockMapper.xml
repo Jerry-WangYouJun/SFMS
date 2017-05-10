@@ -9,6 +9,8 @@
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="stockId" property="stockid" jdbcType="VARCHAR" />
     <result column="supplierId" property="supplierid" jdbcType="VARCHAR" />
+     <result column="goodId" property="goodId" jdbcType="VARCHAR" />
+     <result column="numbers" property="numbers" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     ID, instockDate, instockNo, instockState, remark, stockId, supplierId
@@ -58,11 +60,15 @@
 		p.supplierName AS supplierName,
 		i.instockDate AS instockDate,
 		i.instockState AS instockState,
-		i.remark AS remark
+		i.remark AS remark , 
+		g.productNo  ,
+		g.productname ,
+		i.numbers
 	FROM
 		instock i
 	LEFT JOIN stock s ON i.stockId = s.ID
 	LEFT JOIN supplier p ON i.supplierId = p.ID
+	left join goods g on i.goodid = g.id
 	where 1=1
      <if test="id != null and id !='' " >
        and i.ID = #{id}
@@ -125,10 +131,10 @@
   <insert id="insert" parameterType="com.hyg.pojo.Instock" >
     insert into instock (ID, instockDate, instockNo, 
       instockState, remark, stockId, 
-      supplierId)
+      supplierId , goodId ,numbers)
     values (#{id,jdbcType=INTEGER}, #{instockdate,jdbcType=TIMESTAMP}, #{instockno,jdbcType=VARCHAR}, 
       #{instockstate,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{stockid,jdbcType=VARCHAR}, 
-      #{supplierid,jdbcType=VARCHAR})
+      #{supplierid,jdbcType=VARCHAR} , #{goodId,jdbcType=VARCHAR} , #{numbers,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.hyg.pojo.Instock" >
     insert into instock
@@ -154,6 +160,9 @@
       <if test="supplierid != null" >
         supplierId,
       </if>
+      <if test="goodId != null" >
+        goodId,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -176,6 +185,9 @@
       </if>
       <if test="supplierid != null" >
         #{supplierid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodId != null" >
+        #{goodId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -200,6 +212,12 @@
       <if test="supplierid != null" >
         supplierId = #{supplierid,jdbcType=VARCHAR},
       </if>
+      <if test="goodId != null" >
+        goodId = #{goodId,jdbcType=VARCHAR},
+      </if>
+      <if test="numbers != null" >
+        numbers = #{numbers,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
@@ -210,7 +228,9 @@
       instockState = #{instockstate,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       stockId = #{stockid,jdbcType=VARCHAR},
-      supplierId = #{supplierid,jdbcType=VARCHAR}
+      supplierId = #{supplierid,jdbcType=VARCHAR},
+      goodId = #{goodId,jdbcType=VARCHAR},
+      numbers = #{numbers,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

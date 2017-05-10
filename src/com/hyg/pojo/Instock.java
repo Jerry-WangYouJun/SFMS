@@ -20,6 +20,9 @@ public class Instock {
     private String stockid;
 
     private String supplierid;
+    
+    private String goodId;
+    private int numbers ;
 
     public Integer getId() {
         return id;
@@ -78,4 +81,21 @@ public class Instock {
     public void setSupplierid(String supplierid) {
         this.supplierid = supplierid == null ? null : supplierid.trim();
     }
+
+	public String getGoodId() {
+		return goodId;
+	}
+
+	public void setGoodId(String goodId) {
+		this.goodId = goodId;
+	}
+
+	public int getNumbers() {
+		return numbers;
+	}
+
+	public void setNumbers(int numbers) {
+		this.numbers = numbers;
+	}
+    
 }

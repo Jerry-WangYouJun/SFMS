@@ -18,9 +18,9 @@
 			singleSelect : true,
 			columns:[[
 			    {field : 'stockName',title : '库房',halign:'center',width : 80},
-			    {field : 'productNo',title : '产品编号',halign:'center',width : 120},
-			    {field : 'productName',title : '产品名称',halign:'center',width : 160},
-			    {field : 'productStandard',title : '产品规格',halign:'center',width : 120}, 
+			    {field : 'productNo',title : '饲料编号',halign:'center',width : 120},
+			    {field : 'productName',title : '饲料名称',halign:'center',width : 160},
+			    {field : 'productStandard',title : '饲料规格',halign:'center',width : 120}, 
 			    {field : 'unit',title : '计量单位',halign:'center',width : 80},
 			    {field : 'inventoryNum',title : '数量',halign:'center',width : 80},
 			    {field : 'inventoryPrice',title : '金额',halign:'center',width : 80}
@@ -49,9 +49,9 @@
 </head>
 <body>
 	<div id="tb" title="查询条件区" class="easyui-panel"  style="padding:3px;width:85%" iconCls="icon-search">
-		<span>产品编号:</span>
+		<span>饲料编号:</span>
 		<input id="search-itemNo" name="ItemNo"/>
-		<span>产品名称:</span>
+		<span>饲料名称:</span>
 		<input id="search-itemName" name="ItemName"/>
 		<span>库房:</span>
 		<select id="search-stockId" name="stockId">
