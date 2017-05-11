@@ -32,7 +32,7 @@
 				    {field : 'id',align : 'center',halign:'center',checkbox : true}, 
 				    {field : 'supplierno',title : '供应商编号',halign:'center',width : 80},
 				    {field : 'suppliername',title : '供应商名称',halign:'center',width : 80},
-				    {field : 'provincename',title : '所在地',halign:'center',width : 80},
+				    {field : 'provincecode',title : '所在地',halign:'center',width : 80},
 				    {field : 'supplieraddress',title : '详细地址',halign:'center',width : 180}, 
 				    {field : 'supplieremail',title : '邮箱',halign:'center',width : 120},
 				    {field : 'suppliertel',title : '供应商联系电话',halign:'center',width : 80},

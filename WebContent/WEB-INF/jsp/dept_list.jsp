@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>部门管理</title>
+<title>牧场管理</title>
 	<jsp:include page="/common.jsp"></jsp:include>
 	<script type="text/javascript">
 		$(function(){
@@ -30,17 +30,17 @@
 				}],
 				columns:[[
 				    {field : 'id',align : 'center',halign:'center',checkbox : true}, 
-				    {field : 'deptno',title : '部门编号',halign:'center',width : 120},
-				    {field : 'deptname',title : '部门名称',halign:'center',width : 150},
-				    {field : 'deptleader',title : '部门领导',halign:'center',width : 80},
-				    {field : 'depttel',title : '部门联系方式',halign:'center',width : 80}, 
-				    {field : 'parentno',title : '上级部门',halign:'center',width : 150},
-				    {field : 'deptdesc',title : '部门描述',halign:'center',width : 200}
+				    {field : 'deptno',title : '牧场编号',halign:'center',width : 120},
+				    {field : 'deptname',title : '牧场名称',halign:'center',width : 150},
+				    {field : 'deptleader',title : '牧场领导',halign:'center',width : 80},
+				    {field : 'depttel',title : '牧场联系方式',halign:'center',width : 80}, 
+				    {field : 'parentno',title : '上级牧场',halign:'center',width : 150},
+				    {field : 'deptdesc',title : '牧场描述',halign:'center',width : 200}
 				]]
 			});
 			
 			$('#dlg-frame').dialog( {
-				title : '部门管理',
+				title : '牧场管理',
 				width :  700,
 				height : 400,
 				top:50,
@@ -130,11 +130,11 @@
 	<div id="tb" title="查询条件区" class="easyui-panel"  style="padding:3px;width:85%" iconCls="icon-search">
 		<table align="center">
 			<tr>
-				<td><span>部门编号:</span></td>
+				<td><span>牧场编号:</span></td>
 				<td><input id="deptno" name="deptNo"/></td>
-				<td><span>部门名称:</span></td>
+				<td><span>牧场名称:</span></td>
 				<td><input id="deptname" name="deptName"/></td>
-				<td><span>上级部门:</span></td>
+				<td><span>上级牧场:</span></td>
 				<td>
 					<input id="parentno" name="parentDeptNo"/>
 				</td>

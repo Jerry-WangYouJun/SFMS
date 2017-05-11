@@ -19,6 +19,4 @@ public interface InstockServiceI {
 
 	public int deleteInstock(Integer id);
 
-	public Map confirmInstock(Integer id);
-
 }

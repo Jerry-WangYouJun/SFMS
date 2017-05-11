@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.github.pagehelper.PageHelper;
 import com.core.DateUtils;
 import com.core.model.Grid;
+import com.github.pagehelper.PageHelper;
 import com.pojo.Goods;
 import com.pojo.Outstock;
 import com.pojo.Stock;
@@ -154,38 +154,5 @@ public class OutstockController extends BaseController {
 		return map;
 	}
 	
-	@RequestMapping(value="/hang/{id}")
-	public ModelAndView hangMaterial(@PathVariable("id") Integer id){
-		Map map = new HashMap();
-		map.put("id", id);
-		ModelAndView modelAndView = new ModelAndView();
-		List<Map> results = this.outstockService.findOutstockInfo(map);
-		if (results.size() > 0) {
-			modelAndView.addObject("outstock",results.get(0));
-		}
-		modelAndView.setViewName("outstock_hang");
-		return modelAndView;
-	}
-	
-	@RequestMapping("/detail/{id}")
-	public ModelAndView showDetails(@PathVariable("id") Integer id){
-		Map map = new HashMap();
-		map.put("id", id);
-		ModelAndView modelAndView = new ModelAndView();
-		List<Map> results = this.outstockService.findOutstockInfo(map);
-		if (results.size() > 0) {
-			modelAndView.addObject("outstock",results.get(0));
-		}
-		modelAndView.setViewName("outstock_detail");
-		return modelAndView;
-	}
-	@RequestMapping("/confirm/{id}")
-	@ResponseBody
-	public Map confirmOutstock(@PathVariable("id") Integer id){
-		Map map = new HashMap();
-		map = this.outstockService.confirmOutstock(id);
-		
-		return map;
-	}
 	
 }

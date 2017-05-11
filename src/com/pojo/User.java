@@ -23,7 +23,7 @@ public class User {
 
     private String userno;
 
-    private Integer deptid;
+    private String deptid;
 
     private Integer roleid;
 
@@ -115,11 +115,11 @@ public class User {
         this.userno = userno == null ? null : userno.trim();
     }
 
-    public Integer getDeptid() {
+    public String getDeptid() {
         return deptid;
     }
 
-    public void setDeptid(Integer deptid) {
+    public void setDeptid(String deptid) {
         this.deptid = deptid;
     }
 

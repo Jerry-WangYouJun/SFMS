@@ -34,13 +34,7 @@
 				    {field : 'id',align : 'center',halign:'center',checkbox : true}, 
 				    {field : 'userno',title : '用户名',halign:'center',width : 80},
 				    {field : 'username',title : '用户姓名',halign:'center',width : 80},
-				    {field : 'deptid',title : '所在部门',halign:'center',width : 80,formatter:function(value,rowData,rowIndex){
-				    	if(value == null || value == ""){
-				    		return value;
-				    	}else{
-				    		return value.deptName;	
-				    	}	
-				    }},
+				    {field : 'deptid',title : '所在牧场',halign:'center',width : 80},
 				    {field : 'sex',title : '性别',halign:'center',width : 80,formatter:function(value,rowData,rowIndex){
 				    		if(value == "1"){
 				    			return "女";
@@ -170,7 +164,7 @@
 		<input id="search-userNo" name="userNo"/>
 		<span>姓名:</span>
 		<input id="search-userName" name="userName"/>
-		<span>所属部门:</span>
+		<span>所属牧场:</span>
 		<select id="search-deptNo" name="deptId">
 			<option value="">---请选择---</option>
 		</select> 

@@ -152,38 +152,4 @@ public class InstockController extends BaseController {
 		return map;
 	}
 	
-	@RequestMapping(value="/hang/{id}")
-	public ModelAndView hangMaterial(@PathVariable("id") Integer id){
-		Map map = new HashMap();
-		map.put("id", id);
-		ModelAndView modelAndView = new ModelAndView();
-		List<Map> results = this.instockService.findInstockInfo(map);
-		if (results.size() > 0) {
-			modelAndView.addObject("instock",results.get(0));
-		}
-		modelAndView.setViewName("instock_hang");
-		return modelAndView;
-	}
-	
-	@RequestMapping("/detail/{id}")
-	public ModelAndView showDetails(@PathVariable("id") Integer id){
-		Map map = new HashMap();
-		map.put("id", id);
-		ModelAndView modelAndView = new ModelAndView();
-		List<Map> results = this.instockService.findInstockInfo(map);
-		if (results.size() > 0) {
-			modelAndView.addObject("instock",results.get(0));
-		}
-		modelAndView.setViewName("instock_detail");
-		return modelAndView;
-	}
-	@RequestMapping("/confirm/{id}")
-	@ResponseBody
-	public Map confirmInstock(@PathVariable("id") Integer id){
-		Map map = new HashMap();
-		map = this.instockService.confirmInstock(id);
-		
-		return map;
-	}
-	
 }

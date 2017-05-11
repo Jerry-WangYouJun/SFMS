@@ -19,6 +19,4 @@ public interface OutstockServiceI {
 
 	public int deleteOutstock(Integer id);
 
-	public Map confirmOutstock(Integer id);
-
 }

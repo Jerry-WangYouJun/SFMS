@@ -13,7 +13,7 @@
     <result column="telphone" property="telphone" jdbcType="VARCHAR" />
     <result column="userName" property="username" jdbcType="VARCHAR" />
     <result column="userNo" property="userno" jdbcType="VARCHAR" />
-    <result column="deptId" property="deptid" jdbcType="INTEGER" />
+    <result column="deptId" property="deptid" jdbcType="VARCHAR" />
     <result column="roleId" property="roleid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >

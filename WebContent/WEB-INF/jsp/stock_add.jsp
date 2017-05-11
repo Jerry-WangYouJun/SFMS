@@ -37,7 +37,7 @@
 	}
 	
 	$(function(){
-		initDictionarySelect("province", "#provinceCode");
+		initDictionarySelect("province", "#provincecode");
 	});
 </script>
 </head>

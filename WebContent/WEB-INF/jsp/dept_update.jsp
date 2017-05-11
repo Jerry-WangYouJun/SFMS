@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>部门修改页面</title>
+<title>牧场修改页面</title>
 <jsp:include page="/common.jsp"></jsp:include>
 <style type="text/css">
 	table{
@@ -53,31 +53,31 @@
 	 <input type="hidden"  name="id" value="${dept.id }" />
 	  <table width="100%">
 	  	<tr>
-	  		<td>部门编号：</td>
+	  		<td>牧场编号：</td>
 	  		<td>
 	  			<input type="text" name="deptno" size="14" value="${dept.deptno }" />
 	  		</td>
-	  		<td>部门名称：</td>
+	  		<td>牧场名称：</td>
 	  		<td>
 	  			<input type="text" name="deptname" size="14" value="${dept.deptname }"/>
 	  		</td>
 	  	</tr>
 	  	<tr>
-	  		<td>部门领导人：</td>
+	  		<td>牧场领导人：</td>
 	  		<td>
 	  			<input type="text"  name="deptleader" size="14" value="${dept.deptleader }" />
 	  		</td>
-	  		<td>部门联系方式：</td>
+	  		<td>牧场联系方式：</td>
 	  		<td>
 	  			<input type="text"  name="depttel" size="20" value="${dept.depttel }" />
 	  		</td>
 	  	</tr>
 	  	<tr>
-	  		<td>上级部门：</td>
+	  		<td>上级牧场：</td>
 	  		<td>
 	  			<input type="text" name="parentno" size="14" value="${dept.parentno }" ></input>
 	  		</td>
-	  		<td>部门简介：</td>
+	  		<td>牧场简介：</td>
 	  		<td>
 	  			<input type="text" name="deptdesc" size="20" value="${dept.deptdesc }" ></input>
 	  		</td>

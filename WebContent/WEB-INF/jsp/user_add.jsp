@@ -59,9 +59,9 @@
 		  			<form:select id="hometown" path="hometown" items="${requestScope.provinces }" itemLabel="dicvalue" itemValue="diccode" >
 		  			</form:select>
 		  		</td>
-		  		<td>所在部门：</td>
+		  		<td>所在牧场：</td>
 		  		<td>
-		  			<form:select id="deptNo" path="deptid" items="${requestScope.depts }" itemLabel="deptname" itemValue="id"></form:select>
+		  			<form:select id="deptNo" path="deptid" items="${requestScope.depts }" itemLabel="deptname" itemValue="deptname"></form:select>
 		  		</td>
 		  	</tr>
 		  	<tr>

@@ -52,7 +52,7 @@
 	  		</td>
 	  		<td>所在地区：</td>
 	  		<td>
-	  			<select id="provinceCode" name="provincecode" >
+	  			<select id="provincecode" name="provincecode" >
 	  				<option value="">---请选择---</option>
 	  			</select>
 	  		</td>
